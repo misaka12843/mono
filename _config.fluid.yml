@@ -959,7 +959,7 @@ about:
   icons:
     - { class: "iconfont icon-github-fill", link: "https://github.com/misaka12843", tip: "GitHub" }
     - { class: "iconfont icon-qq-fill", link: "https://qm.qq.com/q/uretAmPkqs", tip: "QQ" }
-    - { class: "iconfont icon-bilibili", link: "https://space.bilibili.com/590084381",tip: "BiliBili" }
+    - { class: "iconfont icon-bilibili", link: "https://space.bilibili.com/590084381", tip: "BiliBili" }
 
 
 #---------------------------
@@ -994,7 +994,7 @@ page404:
 # Links Page
 #---------------------------
 links:
-  enable: true
+  enable: false
   banner_img: /img/asuka.jpg
   banner_img_height: 60
   banner_mask_alpha: 0.3
