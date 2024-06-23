@@ -1060,25 +1060,25 @@ static_prefix:
 
   github_markdown: https://cdn.staticfile.net/github-markdown-css/4.0.0/github-markdown.css
 
-  jquery: https://cdn.staticfile.net/jquery/3.6.4/jquery.js
+  jquery: https://cdn.staticfile.net/jquery/3.6.4/jquery.min.js
 
-  bootstrap: https://cdn.staticfile.net/twitter-bootstrap/4.6.1/js/bootstrap.js
+  bootstrap: https://cdn.staticfile.net/bootstrap/4.6.1/css/bootstrap.css
 
   prismjs: https://cdn.staticfile.net/prism/1.29.0/prism.js
 
   tocbot: https://cdn.staticfile.net/tocbot/4.20.1/tocbot.js
 
-  typed: https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js
+  typed: https://cdn.staticfile.net/ityped/1.0.3/index.min.js
 
   fancybox: https://cdn.staticfile.net/fancybox/3.5.7/jquery.fancybox.js
 
-  nprogress: https://cdn.staticfile.net/nprogress/0.2.0/nprogress.js
+  nprogress: https://cdn.staticfile.net/nprogress/0.2.0/nprogress.min
 
   mathjax: https://cdn.staticfile.net/mathjax/3.2.2/es5/latest.js
 
   katex: https://cdn.jsdelivr.net/npm/katex@0.16.2/katex.min.js
 
-  busuanzi: https://cdn.staticfile.net/busuanzi/2.3.0/bsz.pure.mini.js
+  busuanzi: https://cdn.staticfile.net/busuanzi/2.3.0/bsz.pure.mini.min.js
 
   clipboard: https://cdn.staticfile.net/clipboard.js/2.0.11/clipboard.js
 
