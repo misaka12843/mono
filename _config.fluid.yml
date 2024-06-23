@@ -1078,7 +1078,7 @@ static_prefix:
 
   katex: https://cdn.jsdelivr.net/npm/katex@0.16.2/
 
-  busuanzi: https://cdn.staticfile.net/busuanzi/2.3.0/
+  busuanzi: https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/
 
   clipboard: https://cdn.staticfile.net/clipboard.js/2.0.11/
 
