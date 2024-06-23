@@ -1060,15 +1060,15 @@ static_prefix:
 
   github_markdown: https://cdn.staticfile.net/github-markdown-css/4.0.0/github-markdown.css
 
-  jquery: https://lib.baomitu.com/jquery/3.6.4/
+  jquery: https://cdn.staticfile.net/jquery/3.6.4/jquery.min.js
 
-  bootstrap: https://lib.baomitu.com/twitter-bootstrap/4.6.1/
+  bootstrap: https://cdn.staticfile.net/twitter-bootstrap/4.6.1/js/bootstrap.min.js
 
   prismjs: https://cdn.staticfile.net/prism/1.29.0/prism.js
 
   tocbot: https://cdn.staticfile.net/tocbot/4.20.1/tocbot.js
 
-  typed: https://lib.baomitu.com/typed.js/2.0.12/
+  typed: https://cdn.staticfile.net/typed.js/2.0.12/typed.min.js
 
   fancybox: https://cdn.staticfile.net/fancybox/3.5.7/jquery.fancybox.js
 
@@ -1078,7 +1078,7 @@ static_prefix:
 
   katex: https://cdn.jsdelivr.net/npm/katex@0.16.2/katex.min.js
 
-  busuanzi: https://busuanzi.ibruce.info/busuanzi/2.3/
+  busuanzi: https://cdn.staticfile.net/busuanzi/2.3.0/bsz.pure.mini.js
 
   clipboard: https://cdn.staticfile.net/clipboard.js/2.0.11/clipboard.js
 
