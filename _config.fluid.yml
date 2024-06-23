@@ -1056,46 +1056,46 @@ static_prefix:
   internal_css: /css
   internal_img: /img
 
-  anchor: https://cdn.staticfile.net/anchor-js/4.3.1/anchor.js
+  anchor: https://cdn.staticfile.net/anchor-js/4.3.1/
 
-  github_markdown: https://cdn.staticfile.net/github-markdown-css/4.0.0/github-markdown.css
+  github_markdown: https://cdn.staticfile.net/github-markdown-css/4.0.0/
 
-  jquery: https://cdn.staticfile.net/jquery/3.6.4/jquery.min.js
+  jquery: https://cdn.staticfile.net/jquery/3.6.4/
 
-  bootstrap: https://cdn.staticfile.net/twitter-bootstrap/4.6.1/js/bootstrap.min.js
+  bootstrap: https://cdn.staticfile.net/twitter-bootstrap/4.6.1/
 
-  prismjs: https://cdn.staticfile.net/prism/1.29.0/prism.js
+  prismjs: https://cdn.staticfile.net/prism/1.29.0/
 
-  tocbot: https://cdn.staticfile.net/tocbot/4.20.1/tocbot.js
+  tocbot: https://cdn.staticfile.net/tocbot/4.20.1/
 
-  typed: https://cdn.staticfile.net/typed.js/2.0.12/typed.min.js
+  typed: https://cdn.staticfile.net/typed.js/2.0.12/
 
-  fancybox: https://cdn.staticfile.net/fancybox/3.5.7/jquery.fancybox.js
+  fancybox: https://cdn.staticfile.net/fancybox/3.5.7/
 
   nprogress: https://lib.baomitu.com/nprogress/0.2.0/
 
-  mathjax: https://cdn.staticfile.net/mathjax/3.2.2/es5/latest.js
+  mathjax: https://cdn.staticfile.net/mathjax/3.2.2/
 
-  katex: https://cdn.jsdelivr.net/npm/katex@0.16.2/katex.min.js
+  katex: https://cdn.jsdelivr.net/npm/katex@0.16.2/
 
-  busuanzi: https://cdn.staticfile.net/busuanzi/2.3.0/bsz.pure.mini.js
+  busuanzi: https://cdn.staticfile.net/busuanzi/2.3.0/
 
-  clipboard: https://cdn.staticfile.net/clipboard.js/2.0.11/clipboard.js
+  clipboard: https://cdn.staticfile.net/clipboard.js/2.0.11/
 
-  mermaid: https://cdn.staticfile.net/mermaid/8.14.0/mermaid.js
+  mermaid: https://cdn.staticfile.net/mermaid/8.14.0/
 
-  valine: https://cdn.staticfile.net/valine/1.5.1/Valine.min.js
+  valine: https://cdn.staticfile.net/valine/1.5.1/
 
-  waline: https://cdn.staticfile.net/waline/2.15.5/waline.js
+  waline: https://cdn.staticfile.net/waline/2.15.5/
 
-  gitalk: https://cdn.staticfile.net/gitalk/1.8.0/gitalk.js
+  gitalk: https://cdn.staticfile.net/gitalk/1.8.0/
 
-  disqusjs: https://cdn.staticfile.net/disqusjs/1.3.0/disqus.js
+  disqusjs: https://cdn.staticfile.net/disqusjs/1.3.0/
 
-  twikoo: https://cdn.staticfile.net/twikoo/1.6.8/twikoo.min.js
+  twikoo: https://cdn.staticfile.net/twikoo/1.6.8/
 
-  discuss: https://cdn.staticfile.net/discuss/1.2.1/dist/discuss.js
+  discuss: https://cdn.staticfile.net/discuss/1.2.1/dist/
 
-  hint: https://cdn.staticfile.net/hint.css/2.7.0/hint.css
+  hint: https://cdn.staticfile.net/hint.css/2.7.0/
 
-  moment: https://cdn.staticfile.net/moment.js/2.29.4/moment.js
+  moment: https://cdn.staticfile.net/moment.js/2.29.4/
