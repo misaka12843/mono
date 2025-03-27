@@ -1,0 +1,842 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/mono/img/%E5%BE%A1%E5%9D%82%E5%8F%B7.png">
+  <link rel="icon" href="/mono/img/%E5%BE%A1%E5%9D%82%E5%8F%B7.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="子锋">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="本文是写给自己的，如有错误请谅解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="环境配置与命令行优化指南">
+<meta property="og:url" content="https://misaka12843.github.io/mono/2024/09/03/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E4%B8%8E%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:site_name" content="Misaka">
+<meta property="og:description" content="本文是写给自己的，如有错误请谅解">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://misaka12843.github.io/mono/img/%E5%8A%A9%E6%89%8B.jpg">
+<meta property="article:published_time" content="2024-09-03T14:02:27.000Z">
+<meta property="article:modified_time" content="2025-03-27T23:57:27.724Z">
+<meta property="article:author" content="子锋">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://misaka12843.github.io/mono/img/%E5%8A%A9%E6%89%8B.jpg">
+  
+  
+  
+  <title>环境配置与命令行优化指南 ~ Misaka</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.net/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.net/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.net/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.net/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/mono/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/mono/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/mono/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"misaka12843.github.io","root":"/mono/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":true,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"woyaola":null,"cnzz":null},"search_path":"/mono/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/mono/js/utils.js" ></script>
+  <script  src="/mono/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/mono/">
+      <strong>Misaka</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/mono/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/mono/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/mono/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/mono/img/%E5%8A%A9%E6%89%8B.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="环境配置与命令行优化指南"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-09-03 22:02" pubdate>
+          2024年9月3日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          18 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">环境配置与命令行优化指南</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="环境配置与命令行优化指南"><a href="#环境配置与命令行优化指南" class="headerlink" title="环境配置与命令行优化指南"></a>环境配置与命令行优化指南</h1><h2 id="SCOOP"><a href="#SCOOP" class="headerlink" title="SCOOP"></a>SCOOP</h2><p><code>Scoop</code> 是 <code>Windows</code> 平台上的开源包管理工具，内含多个储存库，并且和 <code>WinGet</code> 不同的是 <code>Scoop</code> 支持第三方存储库，作为开源软件，<code>Scoop</code>的第三方库通常是安全的</p>
+<h3 id="安装和配置"><a href="#安装和配置" class="headerlink" title="安装和配置"></a>安装和配置</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># 查看 PowerShell 版本，确保版本大于 5.1</span><br><span class="hljs-built_in">Get-Host</span> | <span class="hljs-built_in">Select-Object</span> Version<br><br><span class="hljs-comment"># 允许执行 PowerShell 脚本</span><br><span class="hljs-built_in">Set-ExecutionPolicy</span> RemoteSigned <span class="hljs-literal">-Scope</span> CurrentUser<br><br><span class="hljs-comment"># 自定义 Scoop 安装路径</span><br>[<span class="hljs-type">Environment</span>]::SetEnvironmentVariable(<span class="hljs-string">&#x27;SCOOP&#x27;</span>, <span class="hljs-string">&#x27;D:\Scoop&#x27;</span>, <span class="hljs-string">&#x27;User&#x27;</span>)<br><span class="hljs-variable">$env:SCOOP</span> = <span class="hljs-string">&#x27;D:\Scoop&#x27;</span><br><br><span class="hljs-comment"># 安装 Scoop</span><br><span class="hljs-built_in">Invoke-RestMethod</span> <span class="hljs-literal">-Uri</span> https://get.scoop.sh | <span class="hljs-built_in">Invoke-Expression</span><br><br><span class="hljs-comment"># 如果安装失败，尝试设置代理</span><br><span class="hljs-comment"># scoop config proxy 127.0.0.1:8080</span><br><br></code></pre></td></tr></table></figure>
+<h3 id="SCOOP常用命令"><a href="#SCOOP常用命令" class="headerlink" title="SCOOP常用命令"></a>SCOOP常用命令</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs powershell">scoop help <span class="hljs-comment"># 查看帮助</span><br>scoop info &lt;app&gt; <span class="hljs-comment"># 查看 APP 信息</span><br>scoop install &lt;app&gt; <span class="hljs-comment"># 安装 APP</span><br>scoop uninstall &lt;app&gt; <span class="hljs-comment"># 卸载 APP</span><br>scoop reset [<span class="hljs-type">app</span>]<span class="hljs-selector-tag">@</span>[<span class="hljs-type">version</span>] <span class="hljs-comment"># 切换版本</span><br>scoop list <span class="hljs-comment"># 列出已安装的 APP</span><br>scoop search <span class="hljs-comment"># 搜索 APP</span><br>scoop search <span class="hljs-comment"># 更快更好的搜索 APP</span><br>scoop status <span class="hljs-comment"># 检查软件更新</span><br>scoop update <span class="hljs-comment"># 更新 Scoop 自身</span><br>scoop update &lt;appName1&gt; &lt;appName2&gt; <span class="hljs-comment"># 更新指定应用</span><br>scoop update * <span class="hljs-comment"># 更新所有应用（需在 apps 目录下操作）</span><br>scoop bucket known <span class="hljs-comment"># 列出所有已知 bucket</span><br>scoop bucket add &lt;bucketName&gt; <span class="hljs-comment"># 添加 bucket</span><br>scoop cache <span class="hljs-built_in">rm</span> &lt;app&gt; <span class="hljs-comment"># 移除应用缓存</span><br>scoop cache <span class="hljs-built_in">rm</span> * <span class="hljs-comment"># 移除所有缓存</span><br>scoop cleanup &lt;app&gt; <span class="hljs-comment"># 删除旧版本</span><br></code></pre></td></tr></table></figure>
+<h3 id="SCOOP常用存储库"><a href="#SCOOP常用存储库" class="headerlink" title="SCOOP常用存储库"></a>SCOOP常用存储库</h3><ul>
+<li><p>官方库</p>
+<ul>
+<li>字体：<code>scoop bucket add nerd-fonts</code></li>
+<li>常用：<code>scoop bucket add extras</code></li>
+<li>不同版本：<code>scoop bucket add versions</code></li>
+<li>JAVA：<code>scoop bucket add java</code></li>
+<li>PHP：<code>scoop bucket add php</code></li>
+</ul>
+</li>
+<li><p>第三方库</p>
+<ul>
+<li>scoop bucket add third <a target="_blank" rel="noopener" href="https://mirror.ghproxy.com/github.com/cmontage/scoopbucket-third">https://mirror.ghproxy.com/github.com/cmontage/scoopbucket-third</a></li>
+<li>scoop bucket add MorFans-apt ‘<a target="_blank" rel="noopener" href="https://github.com/Paxxs/Cluttered-bucket.git">https://github.com/Paxxs/Cluttered-bucket.git</a>‘</li>
+<li>scoop bucket add dorado <a target="_blank" rel="noopener" href="https://github.com/chawyehsu/dorado">https://github.com/chawyehsu/dorado</a></li>
+<li>scoop bucket add scoopet <a target="_blank" rel="noopener" href="https://github.com/ivaquero/scoopet">https://github.com/ivaquero/scoopet</a></li>
+<li>scoop bucket add lemon <a target="_blank" rel="noopener" href="https://github.com/hoilc/scoop-lemon">https://github.com/hoilc/scoop-lemon</a></li>
+</ul>
+</li>
+<li><p>中国镜像库（能访问GitHub可以不安装）</p>
+<ul>
+<li><code>scoop bucket add scoop-cn https://github.com/duzyn/scoop-cn</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="SCOOP常用软件"><a href="#SCOOP常用软件" class="headerlink" title="SCOOP常用软件"></a>SCOOP常用软件</h3><table>
+<thead>
+<tr>
+<th>软件名</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>winget</td>
+<td>系统包管理器</td>
+</tr>
+<tr>
+<td>scoop-search</td>
+<td>替代自带搜索，效果比自带的好很多</td>
+</tr>
+<tr>
+<td>chsrc</td>
+<td>将软件或系统替换最快镜像站</td>
+</tr>
+<tr>
+<td>gsudo</td>
+<td>某些软件需要安装这个</td>
+</tr>
+<tr>
+<td>7zip</td>
+<td>压缩（自动安装）</td>
+</tr>
+<tr>
+<td>aria2</td>
+<td>下载</td>
+</tr>
+<tr>
+<td>git</td>
+<td>自动安装</td>
+</tr>
+<tr>
+<td>nodejs</td>
+<td>JavaScript</td>
+</tr>
+<tr>
+<td>python</td>
+<td>python</td>
+</tr>
+<tr>
+<td>SyncClipboard</td>
+<td>剪贴版同步、支持多种平台，支持 WebDAV 或者自建服务端</td>
+</tr>
+<tr>
+<td>everything</td>
+<td>搜索工具</td>
+</tr>
+<tr>
+<td>quicklook</td>
+<td>空格键支持预览文件</td>
+</tr>
+<tr>
+<td>notepad3</td>
+<td>替代默认编辑器</td>
+</tr>
+<tr>
+<td>pandoc</td>
+<td>文档格式转换（Typora需要）</td>
+</tr>
+<tr>
+<td>pixpin</td>
+<td>截图贴图OCR本地软件（下载1.7.6.0版本，后续版本要会员）</td>
+</tr>
+<tr>
+<td>honeyview</td>
+<td>查看图片</td>
+</tr>
+<tr>
+<td>magpie</td>
+<td>将不支持全屏放大的游戏使用win+shift+A放大，支持多种放大算法</td>
+</tr>
+<tr>
+<td>localsend</td>
+<td>本地局域网互传</td>
+</tr>
+<tr>
+<td>wingetui</td>
+<td>winget的GUI页面</td>
+</tr>
+<tr>
+<td>OfficeToolPlus-Portable</td>
+<td>安装office</td>
+</tr>
+<tr>
+<td>firacode-NF</td>
+<td>字体</td>
+</tr>
+<tr>
+<td>SarasaGothic-SC</td>
+<td>字体</td>
+</tr>
+<tr>
+<td>LXGWNeoXiHei</td>
+<td>字体</td>
+</tr>
+<tr>
+<td>LXGWWenKai</td>
+<td>字体</td>
+</tr>
+<tr>
+<td>SourceHanSansCN</td>
+<td>字体</td>
+</tr>
+<tr>
+<td>SourceHanSerifFont</td>
+<td>字体</td>
+</tr>
+<tr>
+<td>sarasa-term-sc-nerd</td>
+<td>字体</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>根据<a target="_blank" rel="noopener" href="https://github.com/ScoopInstaller/Extras/issues/13444">[Bug]: inno-setup@6.3.1:解压错误 # 13444</a>由于<code>Scoop</code>使用的默认<code>innounp</code>有一些问题会导致某些应用无法正常安装，因此需要使用以下命令进行替换。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell">scoop bucket add versions<br>scoop install versions/innounp<span class="hljs-literal">-unicode</span><br>scoop uninstall innounp<br></code></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="一键安装"><a href="#一键安装" class="headerlink" title="一键安装"></a>一键安装</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># 安装常用软件</span><br>scoop install aria2 scoop<span class="hljs-literal">-search</span> gsudo grep gzip localsend honeyview chsrc everything magpie notepad3 pixpin quicklook winget OfficeToolPlus<span class="hljs-literal">-Portable</span> scoop<span class="hljs-literal">-completion</span> vscode SyncClipboard<br><span class="hljs-comment"># 如果部分软件找不到那么就是缺少对应存储库，例如 SyncClipboard 需要使用 lemon 进行安装</span><br><br><span class="hljs-comment"># 安装全局软件（使用gsudo给管理权限）</span><br>sudo scoop install <span class="hljs-literal">-g</span> python winget nodejs<br><br><span class="hljs-comment"># 安装字体（使用gsudo给管理权限）</span><br>sudo scoop install firacode<span class="hljs-literal">-NF</span> LXGWWenKai LXGWNeoXiHei sarasa<span class="hljs-literal">-term-sc-nerd</span> Source<span class="hljs-literal">-Han-Serif-SC</span> Wenquanyi<span class="hljs-literal">-Microhei</span> Wenquanyi<span class="hljs-literal">-Zenhei</span><br><br><span class="hljs-comment">#在安装软件后，可以查看最下方的输出，例如：</span><br><span class="hljs-comment">#Notes: Add 7-Zip as a context menu option by running: &quot;&lt;root&gt;\install-context.reg&quot;</span><br><span class="hljs-comment">#注意: 通过运行“ &lt; root &gt; install-context. reg”来添加7-Zip 作为上下文菜单选项</span><br></code></pre></td></tr></table></figure>
+
+<p>附：全平台自动换源工具：<a target="_blank" rel="noopener" href="https://github.com/RubyMetric/chsrc">chsrc：全平台自动换源</a><br>例子：</p>
+<ul>
+<li><code>chsrc set python</code></li>
+<li><code>chsrc set winget</code></li>
+<li><code>chsrc set npm</code></li>
+</ul>
+<h2 id="POWERSHELL美化-1"><a href="#POWERSHELL美化-1" class="headerlink" title="POWERSHELL美化[1]"></a>POWERSHELL美化<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="参考文章：[配置和美化你的powershell终端 - 知乎](https://zhuanlan.zhihu.com/p/444165353#CTZ_BASIS)">[1]</span></a></sup></h2><p>美化一般有以下手段：使用<code>Oh My Posh</code>、<code>Starship</code>、或更换终端为<code>Terminal</code>。在本文中，使用的终端统一为<a target="_blank" rel="noopener" href="https://github.com/microsoft/terminal?tab=readme-ov-file">Terminal</a>，字体为<code>FiraCode Nerd Font</code>。</p>
+<h3 id="oh-my-posh"><a href="#oh-my-posh" class="headerlink" title="oh-my-posh"></a>oh-my-posh</h3><p><code>Oh My Posh</code>是一款适用于多平台的Shell插件，但是由于3.0版本使用了<code>Go</code>语言进行开发，启动时间较长，不太推荐使用。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs powershell">scoop install https://github.com/JanDeDobbeleer/<span class="hljs-built_in">oh</span><span class="hljs-literal">-my-posh</span>/releases/latest/download/<span class="hljs-built_in">oh</span><span class="hljs-literal">-my-posh</span>.json<br><br><span class="hljs-comment"># 加载 oh-my-posh 模块和默认主题</span><br><span class="hljs-built_in">oh</span><span class="hljs-literal">-my-posh</span> init pwsh | <span class="hljs-built_in">Invoke-Expression</span><br><br><span class="hljs-comment"># 获取其他主题</span><br><span class="hljs-built_in">Get-PoshThemes</span><br><br><span class="hljs-comment"># 更改主题</span><br><span class="hljs-built_in">oh</span><span class="hljs-literal">-my-posh</span> init pwsh <span class="hljs-literal">--config</span> <span class="hljs-string">&quot;<span class="hljs-variable">$env:POSH_THEMES_PATH</span>/1_shell.omp.json&quot;</span> | <span class="hljs-built_in">Invoke-Expression</span><br><br><span class="hljs-comment"># 为了永久生效，将以下命令添加到配置文件中</span><br><span class="hljs-comment"># 示例</span><br><span class="hljs-built_in">oh</span><span class="hljs-literal">-my-posh</span> init pwsh <span class="hljs-literal">--config</span> <span class="hljs-string">&#x27;C:\Users\misak12843\AppData\Local\Programs\oh-my-posh\themes\clean-detailed.omp.json&#x27;</span> | <span class="hljs-built_in">Invoke-Expression</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Starship"><a href="#Starship" class="headerlink" title="Starship"></a>Starship</h3><p><code>Starship</code> 是一个高效的终端美化插件，用 <code>Rust</code> 开发，启动时间快，安装和使用简单。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs powershell">scoop install starship<br><br><span class="hljs-comment"># 在配置文件中添加</span><br><span class="hljs-built_in">Invoke-Expression</span> (&amp;starship init powershell)<br></code></pre></td></tr></table></figure>
+
+<p>更多配置请参考<a target="_blank" rel="noopener" href="https://starship.rs/zh-CN/config/">Starship 文档</a>.</p>
+<h3 id="Terminal-Icons"><a href="#Terminal-Icons" class="headerlink" title="Terminal-Icons"></a>Terminal-Icons</h3><p><code>Terminal-Icons</code> 是一个为 PowerShell 显示文件类型图标的模块，依赖 <code>Nerd Fonts</code></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># 安装 Terminal-Icons</span><br>scoop install terminal<span class="hljs-literal">-icons</span><br><br><span class="hljs-comment"># 导入模块</span><br><span class="hljs-built_in">Import-Module</span> <span class="hljs-literal">-Name</span> Terminal<span class="hljs-literal">-Icons</span><br><span class="hljs-built_in">Show-TerminalIconsTheme</span><br></code></pre></td></tr></table></figure>
+
+<p>最后呈现出来的效果如下所示：</p>
+<table>
+<thead>
+<tr>
+<th>更改前</th>
+<th>更改后</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Desktop</td>
+<td><code>󰟀  Desktop</code></td>
+</tr>
+<tr>
+<td>Documents</td>
+<td><code>  Documents</code></td>
+</tr>
+<tr>
+<td>Pictures</td>
+<td><code>󰉏  Pictures </code></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>如果你的<code>󰟀 </code>显示的不是电脑图标，那么你需要将浏览器中宽度固定的字体更改为nerd-font</p>
+</blockquote>
+<p><code>posh-git</code>是一个将<code>Git</code>状态添加在<code>PowerShell</code>的插件，通过它可以直观的看到当前目录的分支以及文件的状态。另外还增加了一些针对<code>Git</code>的补全功能。</p>
+<p>安装<code>posh-git</code>非常简单，只需要使用<code>scoop install posh-git</code>就可以自动完成安装，而且不需要修改<code>PowerShell</code>的配置文件。以下是终端效果：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">fluid on  master is 📦 v1.9.8 via  v22.7.0<br>❯ Hello,World<br></code></pre></td></tr></table></figure>
+
+<h3 id="z-lua"><a href="#z-lua" class="headerlink" title="z.lua"></a>z.lua</h3><p><code>z.lua</code> 是一个高效的目录跳转工具，用 Lua 实现，它根据你的使用频率记录访问过的目录，之后可以快速跳转到这些目录。</p>
+<p><code>scoop install lua</code></p>
+<p>然后需要下载 <code>z.lua</code> 项目，这里推荐直接用 <code>git</code> 将项目克隆到用户主目录下。</p>
+<p><code>git clone https://github.com/skywind3000/z.lua.git $HOME/z.lua</code></p>
+<p>然后在<code>$PROFILE </code>中添加以下代码，这样以后在使用终端的时候都可以用 z 命令来实现跳转了。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment">#进入配置文件</span><br>notepad <span class="hljs-variable">$PROFILE</span><br><span class="hljs-comment">#添加z插件进入powershell</span><br><span class="hljs-built_in">Invoke-Expression</span> (&amp; &#123; (lua <span class="hljs-variable">$HOME</span>/z.lua/z.lua <span class="hljs-literal">--init</span> powershell once enhanced) <span class="hljs-operator">-join</span> <span class="hljs-string">&quot;`n&quot;</span> &#125;)<br><br><span class="hljs-comment"># 当你成功添加了z.lua后，可以试试以下操作：</span><br><br><span class="hljs-comment"># 首先需要在终端中切换几次不同的目录，ab是两个路径不同的目录</span><br><span class="hljs-built_in">cd</span> a<br><span class="hljs-built_in">cd</span> b<br><span class="hljs-comment"># 然后z.lua就会记住切换的选择，下次直接输入目录名甚至一部分即可实现跳转</span><br>z a<br>z b<br></code></pre></td></tr></table></figure>
+
+<p>配置完成后，你可以通过以下命令快速跳转到最近访问过的目录：</p>
+<p><code>z &lt;部分目录名&gt;</code></p>
+<p>例如，如果你最近访问过 <code>C:\Users\Username\Documents\Projects\MyProject</code>，可以通过以下命令跳转：</p>
+<p><code>z MyProject</code>或者<code>z my</code></p>
+<p><code>z.lua</code> 会自动匹配并跳转到你最常访问的目录，非常方便。</p>
+<h3 id="PSReadLine"><a href="#PSReadLine" class="headerlink" title="PSReadLine"></a>PSReadLine</h3><p><code>PSReadLine</code> 是一个用于增强 PowerShell 控制台用户体验的模块。它提供了丰富的命令行编辑功能、命令历史记录管理，以及键绑定定制。安装和配置 <code>PSReadLine</code> 可以显著提升你在 PowerShell 中的工作效率。</p>
+<p>你可以使用以下命令安装<code>PSReadLine</code> </p>
+<p><code>Install-Module -Name PSReadLine -Force -SkipPublisherCheck</code></p>
+<p><code>-Force</code> 参数确保覆盖任何已安装的版本，<code>-SkipPublisherCheck</code> 则跳过发布者检查，以便顺利安装。</p>
+<p>安装完成后，你可以通过自定义配置文件来配置它，以下是推荐配置，你可以在<a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/powershell/module/psreadline/set-psreadlineoption?view=powershell-7.4">这个链接</a>找到关于配置文件的详细信息。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">Import-Module</span> PSReadLine<br><span class="hljs-built_in">Set-PSReadLineOption</span> <span class="hljs-literal">-EditMode</span> Windows<br><span class="hljs-comment"># 其他选项：-EditMode Emacs （Emacs风格的快捷键）</span><br><span class="hljs-comment">#         -EditMode Vi	   (Vim用户狂喜)</span><br><span class="hljs-built_in">Set-PSReadLineOption</span> <span class="hljs-literal">-PredictionSource</span> HistoryAndPlugin<br><span class="hljs-comment"># 其他选项：-PredictionSource None（关闭自动补全预测）、-PredictionSource History（仅使用历史记录）</span><br><br><span class="hljs-comment"># 设定预测结果的显示样式为列表视图</span><br><span class="hljs-built_in">Set-PSReadLineOption</span> <span class="hljs-literal">-PredictionViewStyle</span> ListView<br><span class="hljs-comment"># 其他选项：-PredictionViewStyle InlineView（内联显示预测结果）</span><br><span class="hljs-built_in">Set-PSReadLineOption</span> <span class="hljs-literal">-BellStyle</span> None<br><span class="hljs-comment"># 绑定Ctrl+d快捷键，用于删除光标处的字符</span><br><span class="hljs-built_in">Set-PSReadLineKeyHandler</span> <span class="hljs-literal">-Chord</span> <span class="hljs-string">&#x27;Ctrl+d&#x27;</span> <span class="hljs-literal">-Function</span> DeleteChar<br></code></pre></td></tr></table></figure>
+
+<h2 id="附记"><a href="#附记" class="headerlink" title="附记"></a>附记</h2><p>以下是自用的<code>Powershell</code>配置，一个是<code>Oh My Posh</code>，另一个是<code>Starship</code></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># oh-my-posh 初始化</span><br><span class="hljs-built_in">oh</span><span class="hljs-literal">-my-posh</span> init pwsh <span class="hljs-literal">--config</span> <span class="hljs-string">&#x27;C:\Users\misak12843\AppData\Local\Programs\oh-my-posh\themes\clean-detailed.omp.json&#x27;</span> | <span class="hljs-built_in">Invoke-Expression</span><br><span class="hljs-built_in">set-alias</span> <span class="hljs-literal">-name</span> ll <span class="hljs-literal">-value</span> <span class="hljs-built_in">ls</span><br><span class="hljs-built_in">set-alias</span> <span class="hljs-literal">-name</span> <span class="hljs-built_in">sc</span> <span class="hljs-literal">-value</span> scoop<span class="hljs-literal">-search</span><br><span class="hljs-built_in">set-alias</span> <span class="hljs-literal">-name</span> s <span class="hljs-literal">-value</span> scoop<br><span class="hljs-built_in">Import-Module</span> <span class="hljs-literal">-Name</span> Terminal<span class="hljs-literal">-Icons</span><br><br><span class="hljs-comment"># z.lua 初始化</span><br><span class="hljs-built_in">Invoke-Expression</span> (&amp; &#123; (lua <span class="hljs-variable">$HOME</span>/z.lua/z.lua <span class="hljs-literal">--init</span> powershell once enhanced) <span class="hljs-operator">-join</span> <span class="hljs-string">&quot;`n&quot;</span> &#125;)<br><span class="hljs-built_in">Import-Module</span> PSReadLine<br><span class="hljs-built_in">Set-PSReadLineOption</span> <span class="hljs-literal">-EditMode</span> Vi<br><span class="hljs-built_in">Set-PSReadLineOption</span> <span class="hljs-literal">-PredictionSource</span> HistoryAndPlugin<br><span class="hljs-built_in">Set-PSReadLineOption</span> <span class="hljs-literal">-PredictionViewStyle</span> ListView<br><span class="hljs-built_in">Set-PSReadLineOption</span> <span class="hljs-literal">-BellStyle</span> None<br><span class="hljs-built_in">Set-PSReadLineKeyHandler</span> <span class="hljs-literal">-Chord</span> <span class="hljs-string">&#x27;Ctrl+d&#x27;</span> <span class="hljs-literal">-Function</span> DeleteChar<br><br><span class="hljs-comment">#scoop 自动补全</span><br><span class="hljs-built_in">Import-Module</span> <span class="hljs-string">&quot;<span class="hljs-variable">$</span>(<span class="hljs-variable">$</span>(Get-Item <span class="hljs-variable">$</span>(Get-Command scoop.ps1).Path).Directory.Parent.FullName)\modules\scoop-completion&quot;</span><br><br><span class="hljs-comment">#gsudo</span><br><span class="hljs-built_in">Import-Module</span> gsudoModule<br><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment">#starship版本</span><br><span class="hljs-built_in">set-alias</span> <span class="hljs-literal">-name</span> ll <span class="hljs-literal">-value</span> <span class="hljs-built_in">ls</span><br><span class="hljs-built_in">set-alias</span> <span class="hljs-literal">-name</span> <span class="hljs-built_in">sc</span> <span class="hljs-literal">-value</span> scoop<span class="hljs-literal">-search</span><br><span class="hljs-built_in">set-alias</span> <span class="hljs-literal">-name</span> s <span class="hljs-literal">-value</span> scoop<br><br><span class="hljs-comment"># starship 初始化</span><br><span class="hljs-variable">$ENV:STARSHIP_CONFIG</span> = <span class="hljs-string">&quot;<span class="hljs-variable">$HOME</span>\.config\starship\gruvbox-rainbow.toml&quot;</span><br><span class="hljs-built_in">Invoke-Expression</span> (&amp; starship init powershell)<br><span class="hljs-built_in">Import-Module</span> <span class="hljs-literal">-Name</span> Terminal<span class="hljs-literal">-Icons</span><br><br><span class="hljs-comment"># z.lua 初始化</span><br><span class="hljs-built_in">Invoke-Expression</span> (&amp; &#123; (lua <span class="hljs-variable">$HOME</span>/z.lua/z.lua <span class="hljs-literal">--init</span> powershell once enhanced) <span class="hljs-operator">-join</span> <span class="hljs-string">&quot;`n&quot;</span> &#125;)<br><span class="hljs-built_in">Import-Module</span> PSReadLine<br><span class="hljs-built_in">Set-PSReadLineOption</span> <span class="hljs-literal">-EditMode</span> Vi<br><span class="hljs-built_in">Set-PSReadLineOption</span> <span class="hljs-literal">-PredictionSource</span> HistoryAndPlugin<br><span class="hljs-built_in">Set-PSReadLineOption</span> <span class="hljs-literal">-PredictionViewStyle</span> ListView<br><span class="hljs-built_in">Set-PSReadLineOption</span> <span class="hljs-literal">-BellStyle</span> None<br><span class="hljs-built_in">Set-PSReadLineKeyHandler</span> <span class="hljs-literal">-Chord</span> <span class="hljs-string">&#x27;Ctrl+d&#x27;</span> <span class="hljs-literal">-Function</span> DeleteChar<br><br><span class="hljs-comment">#scoop 自动补全</span><br><span class="hljs-built_in">Import-Module</span> <span class="hljs-string">&quot;<span class="hljs-variable">$</span>(<span class="hljs-variable">$</span>(Get-Item <span class="hljs-variable">$</span>(Get-Command scoop.ps1).Path).Directory.Parent.FullName)\modules\scoop-completion&quot;</span><br><br><span class="hljs-comment">#gsudo</span><br><span class="hljs-built_in">Import-Module</span> gsudoModule<br></code></pre></td></tr></table></figure>
+
+<hr>
+<p>注：</p>
+<section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span>参考文章：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/444165353#CTZ_BASIS">配置和美化你的powershell终端 - 知乎</a>
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span>配置来自：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/674148271">使用 starship 统一 cmd, powershell, git bash 等样式 - 知乎</a>
+<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/mono/categories/windows/" class="category-chain-item">windows</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>环境配置与命令行优化指南</div>
+      <div>https://misaka12843.github.io/mono/2024/09/03/环境配置与命令行优化指南/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>子锋</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年9月3日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/mono/2025/03/27/%E7%8E%B2%E9%9F%B3%EF%BC%9A%E7%A9%BF%E8%B6%8A%E6%97%B6%E7%A9%BA%E7%9A%84%E7%BD%91%E7%BB%9C%E9%A2%84%E8%A8%80/" title="玲音：穿越时空的网络预言">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">玲音：穿越时空的网络预言</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/mono/2024/08/10/RP%E6%95%99%E5%AD%A6/" title="RP教学">
+                        <span class="hidden-mobile">RP教学</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":true,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.staticfile.net/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.net/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/mono/js/events.js" ></script>
+<script  src="/mono/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.staticfile.net/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/mono/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.staticfile.net/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://cdn.staticfile.net/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.staticfile.net/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.staticfile.net/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/mono/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/mono/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

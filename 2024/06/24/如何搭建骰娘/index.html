@@ -1,0 +1,743 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/mono/img/%E5%BE%A1%E5%9D%82%E5%8F%B7.png">
+  <link rel="icon" href="/mono/img/%E5%BE%A1%E5%9D%82%E5%8F%B7.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="子锋">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="如何简单的使用海豹核心进行骰娘搭建（Windows、Linux、Android）另附常见问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何搭建骰娘">
+<meta property="og:url" content="https://misaka12843.github.io/mono/2024/06/24/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E9%AA%B0%E5%A8%98/index.html">
+<meta property="og:site_name" content="Misaka">
+<meta property="og:description" content="如何简单的使用海豹核心进行骰娘搭建（Windows、Linux、Android）另附常见问题">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://misaka12843.github.io/mono/img/liang.jpg">
+<meta property="article:published_time" content="2024-06-24T20:00:00.000Z">
+<meta property="article:modified_time" content="2025-03-27T23:57:27.724Z">
+<meta property="article:author" content="子锋">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://misaka12843.github.io/mono/img/liang.jpg">
+  
+  
+  
+  <title>如何搭建骰娘 ~ Misaka</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.net/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.net/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.net/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.net/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/mono/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/mono/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/mono/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"misaka12843.github.io","root":"/mono/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":true,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"woyaola":null,"cnzz":null},"search_path":"/mono/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/mono/js/utils.js" ></script>
+  <script  src="/mono/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/mono/">
+      <strong>Misaka</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/mono/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/mono/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/mono/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/mono/img/liang.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="如何搭建骰娘"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-06-25 04:00" pubdate>
+          2024年6月25日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          13 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">如何搭建骰娘</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="选择骰娘核心"><a href="#选择骰娘核心" class="headerlink" title="选择骰娘核心"></a>选择骰娘核心</h1><p>要搭建骰娘第一步自然是选择骰娘核心了，接下来先简单介绍一下目前常用的有什么核心</p>
+<table>
+<thead>
+<tr>
+<th>核心名</th>
+<th>时间</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/Dice-Developer-Team/Dice">Dice!</a>（溯洄）</td>
+<td>2018年</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://sitcnya.gitbook.io/sinanya">SinaNya</a>（塔骰）</td>
+<td>2019年</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://wiki.dice.center/">青果</a></td>
+<td>2021年</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://dicer.noctisynth.org/">Dicer</a></td>
+<td>2023年</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://dice.weizaima.com/">Seal</a>（海豹）</td>
+<td>2022年</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>注：这里的年份来自 <a target="_blank" rel="noopener" href="https://www.github.com/">GitHub</a> 仓库中最早提交日期</p>
+</blockquote>
+<p>在这些核心中，海豹核心因其易用性而特别适合新手。本文将展示如何使用海豹核心搭建骰娘</p>
+<p>海豹官网：<a target="_blank" rel="noopener" href="https://dice.weizaima.com/">https://dice.weizaima.com/</a></p>
+<h1 id="部署海豹"><a href="#部署海豹" class="headerlink" title="部署海豹"></a>部署海豹</h1><h2 id="Windows-平台"><a href="#Windows-平台" class="headerlink" title="Windows 平台"></a>Windows 平台</h2><h3 id="下载海豹"><a href="#下载海豹" class="headerlink" title="下载海豹"></a>下载海豹</h3><p>在 Windows 平台中部署海豹非常容易。</p>
+<p>首先，从<a target="_blank" rel="noopener" href="https://dice.weizaima.com/download">下载连接</a>中下载适合您电脑平台的海豹核心。<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="关于如何选择64位或32位，可以通过电脑内存来判断，使用`Esc+Shift+Control`进入任务管理器，点击`性能`，查看内存大小，小于等于4G内存建议使用32位版本。">[1]</span></a></sup>找到并解压文件到您选择的文件夹。</p>
+<p><img src="https://misaka12843.oss-cn-hangzhou.aliyuncs.com/img/image-20240625014543910-1719251157767-1.png" srcset="/mono/img/loading.gif" lazyload alt="下载文件夹一般可以在此电脑-快速访问找到"></p>
+<p>然后直接双击打开海豹图标即可</p>
+<p align = "center">
+<img src="https://misaka12843.oss-cn-hangzhou.aliyuncs.com/img/image-20240625015248762-1719251570352-3.png" srcset="/mono/img/loading.gif" lazyload alt="海豹图标" style="zoom:60%;"/>
+</p>
+
+
+<p>接着，在任务栏右下角点击图标，选择菜单中的选项以打开界面。</p>
+<p><img src="https://misaka12843.oss-cn-hangzhou.aliyuncs.com/img/image-20240625015439689-1719251681324-5.png" srcset="/mono/img/loading.gif" lazyload alt="任务栏找到小图标"></p>
+<h2 id="Linux-平台"><a href="#Linux-平台" class="headerlink" title="Linux 平台"></a>Linux 平台</h2><h3 id="购买云服务器（可跳过）"><a href="#购买云服务器（可跳过）" class="headerlink" title="购买云服务器（可跳过）"></a>购买云服务器（可跳过）</h3><blockquote>
+<p>以下是购买云服务器的相关内容，如果你已经购买了那么可以跳过本段落</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.qq.com/document/DV0RCS0lGeHdMTFFV">云服务器推荐表</a></p>
+<p>首先在上图中查看自己想购买的云服务器<br>这里我选择京东云配置为2c2g的轻量云服务器，目前价格为58<br>注意购买时，镜像选择Ubuntu等系统镜像，不要使用它默认的游戏镜像</p>
+<p>购买完成后搜索轻量云主机，点击控制台<br><img src="https://misaka12843.oss-cn-hangzhou.aliyuncs.com/img/image-20240715173834078.png" srcset="/mono/img/loading.gif" lazyload alt="搜索"></p>
+<p>进入后选择正确的地域（我这里是华东-宿迁）</p>
+<p><img src="https://misaka12843.oss-cn-hangzhou.aliyuncs.com/img/image-20240715174022520.png" srcset="/mono/img/loading.gif" lazyload alt="查看信息"></p>
+<ol>
+<li>点击更多-重置密码，这里推荐使用字母+数字+符号的方式</li>
+<li>进入查看，在防火墙中添加规则，允许3211端口能被访问</li>
+<li>使用ssh或在线登录进入系统</li>
+</ol>
+<p>如果对Linux系统不熟悉，希望知道更多命令可以使用<a target="_blank" rel="noopener" href="https://www.linuxcool.com/">Linux命令大全</a>搜索命令，如查看当前目录使用<code>ls</code>,查看当前路径<code>pwd</code>,改名或移动文件使用<code>mv</code>。如何使用<code>ssh</code>登录请<a target="_blank" rel="noopener" href="https://www.linuxcool.com/ssh">参考</a></p>
+<h3 id="下载海豹-1"><a href="#下载海豹-1" class="headerlink" title="下载海豹"></a>下载海豹</h3><p>使用以下命令下载海豹核心：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget https://d1.sealdice.com/sealdice-core_1.4.5_linux_amd64.tar.gz<br></code></pre></td></tr></table></figure>
+
+<p>在下载完成后使用以下命令来解压缩：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">tar -xzvf sealdice-core_1.4.5_linux_amd64.tar.gz<br></code></pre></td></tr></table></figure>
+
+<p>进入目录，给予权限后运行<code>sealdice-core</code>文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">注意，这里的目录可以使用<span class="hljs-built_in">ls</span>查看，并不都是相同目录<br><span class="hljs-built_in">cd</span> ./sealdice-core<br><span class="hljs-built_in">chmod</span> +x ./sealdice-core<br>./sealdice-core<br></code></pre></td></tr></table></figure>
+
+<p>然后在浏览器中输入后台地址 <a href="localhost:3211">localhost:3211</a> 来访问后台<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="如果你使用的是云服务器，`localhost`使用你的公网 ip 地址替代">[2]</span></a></sup>。</p>
+<blockquote>
+<p> 如果使用的是云服务器，在进入后台后首先要在综合设置-基本设置-访问控制中更改UI界面密码，以免被人盗用。</p>
+</blockquote>
+<p>此外可以将‘sealdice’注册为系统服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">./sealdice-core -i<br>取消注册的命令为<br>./sealdice-core -uninstall<br>在注册后可以使用<br>systemctl status sealdice<br>来查看进程是否启动<br></code></pre></td></tr></table></figure>
+
+<h2 id="手机平台"><a href="#手机平台" class="headerlink" title="手机平台"></a>手机平台</h2><h3 id="下载海豹-2"><a href="#下载海豹-2" class="headerlink" title="下载海豹"></a>下载海豹</h3><blockquote>
+<p>注意：手机平台上的海豹登录时需要使用<a target="_blank" rel="noopener" href="https://tim.qq.com/download.html">TIM</a>进行扫码</p>
+</blockquote>
+<p>首先在浏览器进入<a target="_blank" rel="noopener" href="https://dice.weizaima.com/download">下载连接</a>，找到下载按钮</p>
+<p align = "center">
+<img src="https://misaka12843.oss-cn-hangzhou.aliyuncs.com/img/image-20240625021906785.png" srcset="/mono/img/loading.gif" lazyload alt="下载按钮有点小" style="zoom:33%;" />
+</p>
+安装完成后进入海豹
+
+
+<p>先点击启动核心，然后再等待10秒后自动跳转到UI页面。</p>
+<p align = "center">
+<img src="https://misaka12843.oss-cn-hangzhou.aliyuncs.com/img/image-20240625024326299.png" srcset="/mono/img/loading.gif" lazyload alt="其实也可以启动核心后直接进UI界面" style="zoom:50%;" />
+</p>
+
+
+<p>关于如何登录具体参考 Windows 章节的添加账号部分，唯一不同的地方是需要提前下载手机版本的<a target="_blank" rel="noopener" href="https://tim.qq.com/download.html">TIM</a>并且使用<a target="_blank" rel="noopener" href="https://tim.qq.com/download.html">TIM</a>来扫码登录。</p>
+<h2 id="后台设置"><a href="#后台设置" class="headerlink" title="后台设置"></a>后台设置</h2><h3 id="添加账号"><a href="#添加账号" class="headerlink" title="添加账号"></a>添加账号</h3><p>在账号设置中点击添加账号</p>
+<p align = "center">
+<img src="https://misaka12843.oss-cn-hangzhou.aliyuncs.com/img/image-20240625015613770-1719251775993-7.png" srcset="/mono/img/loading.gif" lazyload alt="添加账号" style="zoom:50%;" />
+</p>
+
+
+
+<p>在输入自己的QQ号后即可扫描二维码登录，在成功后就可以恭喜你，已经完成了第一步。</p>
+<p align = "center">
+<img src="https://misaka12843.oss-cn-hangzhou.aliyuncs.com/img/image-20240625015855296.png" srcset="/mono/img/loading.gif" lazyload alt="二维码" style="zoom:50%;" />
+</p>
+
+
+<blockquote>
+<p>此外，在“综合设置&#x2F;基本设置”中，您可以找到 Master 解锁码，通过QQ发送此码给骰娘，以快速获取管理员权限。</p>
+</blockquote>
+<h3 id="如何发送表情包-图片"><a href="#如何发送表情包-图片" class="headerlink" title="如何发送表情包&#x2F;图片"></a>如何发送表情包&#x2F;图片</h3><p>请注意，海豹核心仅允许从&#x2F;data&#x2F;images目录发送图片。确保先将图片复制到此目录，然后使用相应的格式发送。例如：<code>[图:data/images/欢迎新人.jpg]</code>的格式来发送图片。</p>
+<p>如果你使用的是云服务器，那么可以通过<code>scp</code>来传输图片文件到images目录中，具体如何使用请参考<a target="_blank" rel="noopener" href="https://www.linuxcool.com/scp">这个连接</a></p>
+<h1 id="海豹常见问题"><a href="#海豹常见问题" class="headerlink" title="海豹常见问题"></a>海豹常见问题</h1><h2 id="无法登录"><a href="#无法登录" class="headerlink" title="无法登录"></a>无法登录</h2><h4 id="一、内置-bug"><a href="#一、内置-bug" class="headerlink" title="一、内置 bug"></a>一、内置 bug</h4><p>由于海豹默认使用的核心为 <a target="_blank" rel="noopener" href="https://github.com/LagrangeDev/Lagrange.Core">Lagrange</a> 有一点bug可能会导致无法登录，常见于过多次关闭打开核心的状况。具体解决方法：</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs fortran">电脑：尝试删掉<span class="hljs-keyword">data</span>/<span class="hljs-keyword">default</span>/extra/lagrange-QQ号文件夹，重启海豹<br>手机：尝试停止海豹核心，在右上角设置那里把文件同步开一下，导出文件，到显示的目录删掉<span class="hljs-keyword">data</span>/<span class="hljs-keyword">default</span>/extra/lagrange-QQ号文件夹，然后导入，启动核心<br></code></pre></td></tr></table></figure>
+
+<h5 id="电脑端"><a href="#电脑端" class="headerlink" title="电脑端"></a>电脑端</h5><p align = "center">
+<img src="https://misaka12843.oss-cn-hangzhou.aliyuncs.com/img/recording.gif" srcset="/mono/img/loading.gif" lazyload alt="recording" style="zoom: 67%;" />
+</p>
+
+
+<h4 id="二、无法获取二维码"><a href="#二、无法获取二维码" class="headerlink" title="二、无法获取二维码"></a>二、无法获取二维码</h4><p>重新登录发现无法获取到二维码，并且终端报错“Onebot”进程启动失败，这时候你需要检查一下你的<a target="_blank" rel="noopener" href="https://github.com/LagrangeDev/Lagrange.Core">Lagrange</a>文件夹了。他的位置在海豹文件夹的 Lagrange 内。</p>
+<img src="https://misaka12843.oss-cn-hangzhou.aliyuncs.com/img/image-20240625025510119.png" srcset="/mono/img/loading.gif" lazyload alt="注意勤备份哦" style="zoom:50%;" />
+
+<p>检查 Lagrange 文件夹内是否还有<code>Lagrange.OneBot.exe</code>。如果缺失，请从下载页面重新获取并替换。</p>
+<p><img src="https://misaka12843.oss-cn-hangzhou.aliyuncs.com/img/image-20240625025545841.png" srcset="/mono/img/loading.gif" lazyload alt="OneBot文件"></p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>感谢各位的观看，如果有什么问题可以发送邮件到<a href="mailto:&#x6d;&#x69;&#x73;&#97;&#x6b;&#97;&#49;&#x32;&#x38;&#52;&#51;&#x40;&#111;&#x75;&#116;&#x6c;&#111;&#x6f;&#107;&#x2e;&#x63;&#111;&#109;">&#x6d;&#x69;&#x73;&#97;&#x6b;&#97;&#49;&#x32;&#x38;&#52;&#51;&#x40;&#111;&#x75;&#116;&#x6c;&#111;&#x6f;&#107;&#x2e;&#x63;&#111;&#109;</a>。如果文中有什么地方有误，烦请指教。本博客会定期更新，谢谢各位。</p>
+<h1 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h1><p>2024-7-15<br>新增云服务器介绍</p>
+<p>2024-6-25<br>添加了一个动图便于理解内置bug文件夹位置</p>
+<hr>
+<p>注释：</p>
+<section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span>关于如何选择64位或32位，可以通过电脑内存来判断，使用<code>Esc+Shift+Control</code>进入任务管理器，点击<code>性能</code>，查看内存大小，小于等于4G内存建议使用32位版本。
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span>如果你使用的是云服务器，<code>localhost</code>使用你的公网 ip 地址替代
+<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/mono/categories/trpg/" class="category-chain-item">trpg</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>如何搭建骰娘</div>
+      <div>https://misaka12843.github.io/mono/2024/06/24/如何搭建骰娘/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>子锋</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年6月25日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/mono/2024/08/10/RP%E6%95%99%E5%AD%A6/" title="RP教学">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">RP教学</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":true,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.staticfile.net/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.net/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/mono/js/events.js" ></script>
+<script  src="/mono/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.staticfile.net/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/mono/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.staticfile.net/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://cdn.staticfile.net/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.staticfile.net/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.staticfile.net/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/mono/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/mono/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
